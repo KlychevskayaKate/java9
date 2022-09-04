@@ -59,22 +59,23 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void removeOneStation2() { // вернуться на одну станцию назад
+    public void removeOneStation1() { // вернуться на одну станцию
         Radio radio = new Radio();
-        radio.setCurrentStations(-3);
+        radio.setCurrentStations(10);
         radio.prev();
         int actual = radio.getCurrentStations();
-        int expected = 0;
+        int expected = 9;
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void minStation() { // минимальная станция
         Radio radio = new Radio();
         radio.setCurrentStations(0);
         radio.prev();
         int actual = radio.getCurrentStations();
-        int expected = 0;
+        int expected = 9;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -84,7 +85,7 @@ public class RadioTest {
         radio.setCurrentStations(-2);
         radio.prev();
         int actual = radio.getCurrentStations();
-        int expected = 0;
+        int expected = 9;
 
         Assertions.assertEquals(expected, actual);
     }

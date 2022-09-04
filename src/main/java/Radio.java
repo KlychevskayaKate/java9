@@ -45,7 +45,7 @@ public class Radio {
         }
     }
     public void prev() {
-        if (currentStations <= 9) {
+        if (currentStations > 0) {
             setCurrentStations(currentStations - 1);
         } else {
             setCurrentStations(9);
