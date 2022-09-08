@@ -3,6 +3,29 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
     @Test
+    public void addStation() { //добавить одну станцию
+        Radio radio = new Radio(50);
+        radio.setCurrentStations(40);
+        radio.next();
+        int actual = radio.getCurrentStations();
+        int expected = 41;
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void removeStation() { // вернуться на одну станцию
+        Radio radio = new Radio(50);
+        radio.setCurrentStations(49);
+        radio.prev();
+        int actual = radio.getCurrentStations();
+        int expected = 48;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void addOneStation() { //добавить одну станцию
         Radio radio = new Radio();
         radio.setCurrentStations(1);
@@ -37,6 +60,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void oneStepUpFromTheMinimum() { //один шаг от минимума
         Radio radio = new Radio();
@@ -48,6 +72,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void removeOneStation() { // вернуться на одну станцию
         Radio radio = new Radio();
@@ -58,6 +83,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void removeOneStation1() { // вернуться на одну станцию
         Radio radio = new Radio();
@@ -79,6 +105,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void stationBelowTheMinimum() { // вернуться назад на станцию за пределами минумума
         Radio radio = new Radio();
@@ -89,17 +116,19 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void maxVolume() { //максимальня  громкость шаг вперед
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
         int actual = radio.getCurrentVolume();
-        int expected = 10;
+        int expected = 100;
 
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void maxVolumeOneStepBack() { //максимальня  громкость шаг назад
         Radio radio = new Radio();
@@ -111,6 +140,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void addVolumeOneStep() { // добавить громкость на один шаг
         Radio radio = new Radio();
@@ -122,6 +152,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void OneStepBack() { // шаг назад
         Radio radio = new Radio();
@@ -132,6 +163,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void addVolumeOneStepAtMin() { // добавить громкость на один шаг от минимума
         Radio radio = new Radio();
@@ -143,6 +175,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void OneStepBackTheMin() { // шаг назад
         Radio radio = new Radio();
@@ -154,10 +187,11 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void volumeBeyondTheMaximum() { // добавить громкость на шаг за пределами максимума
         Radio radio = new Radio();
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
         radio.increaseVolume();
         int actual = radio.getCurrentVolume();
         int expected = 1;
@@ -165,10 +199,11 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
-    public void minVolume() { // на один шаг назад от минимальной громкости
+    public void OneStepBackTheMaxVolume() { // на один шаг назад от максимальной громкости
         Radio radio = new Radio();
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
         radio.reduceVolume();
         int actual = radio.getCurrentVolume();
         int expected = 0;
@@ -176,6 +211,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void stepDown() { // один шаг назад
         Radio radio = new Radio();
@@ -187,6 +223,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void oneStepForward() { // один шаг вперед
         Radio radio = new Radio();
@@ -197,6 +234,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void oneStepForwardBeyondTheMinimum() { // один шаг вперед за минимумом
         Radio radio = new Radio();
@@ -207,6 +245,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void oneStepForwardTheMinimum() { // один шаг назад за минимумом
         Radio radio = new Radio();
